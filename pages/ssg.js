@@ -1,8 +1,7 @@
 import Head from 'next/head'
-import Link from 'next/link'
 
-export async function getServerSideProps() {
-  console.log("server fetching")
+export async function getStaticProps() {
+  console.log("ssg getStaticProps")
   return {
     props: {
       time: new Date().toISOString()
@@ -10,7 +9,7 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Home({ time }) {
+export default function SSG({ time }) {
   return (
     <div className="container">
       <Head>
@@ -20,12 +19,9 @@ export default function Home({ time }) {
 
       <main>
         <h1 className="title">
-          Welcome to the <a href="https://nextjs.org">Next.js!</a>
+          This is SSG page!
         </h1>
         <h3>{time}</h3>
-          <Link href="/csr"><a className='link-btn'>CSR</a></Link>
-          <Link href="/ssg"><a className='link-btn'>SSG</a></Link>
-          <Link href="/isr"><a className='link-btn'>ISR</a></Link>
       </main>
 
       <footer>
@@ -160,24 +156,6 @@ export default function Home({ time }) {
 
         .logo {
           height: 1em;
-        }
-
-        .link-btn {
-          background: #0070f3;
-          color: #fff;
-          padding: 10px 20px;
-          font-size: 24px;
-          font-weight: 500;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-          transition: background-color 200ms ease-in-out;
-        }
-
-        .link-btn:hover {
-          outline: none;
-          box-shadow: none;
-          background: #111;
         }
 
         @media (max-width: 600px) {
