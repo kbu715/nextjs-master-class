@@ -1,14 +1,14 @@
-import Layout from "../components/Layout";
-import SubLayout from "../components/SubLayout";
+import Layout from '../components/Layout'
+import SubLayout from '../components/SubLayout'
 
 export async function getStaticProps() {
-  console.log("isr getStaticProps");
+  console.log('isr getStaticProps')
   return {
     props: {
       time: new Date().toISOString(),
     },
     revalidate: 1, // 1sec
-  };
+  }
 }
 
 export default function ISR({ time }) {
@@ -17,7 +17,7 @@ export default function ISR({ time }) {
       <h1>This is ISR page!</h1>
       <h3>{time}</h3>
     </>
-  );
+  )
 }
 
 ISR.getLayout = function (page) {
@@ -25,5 +25,5 @@ ISR.getLayout = function (page) {
     <Layout>
       <SubLayout>{page}</SubLayout>
     </Layout>
-  );
-};
+  )
+}

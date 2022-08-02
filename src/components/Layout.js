@@ -8,9 +8,7 @@ export default function Layout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
 
       <footer>
         <a
@@ -18,8 +16,7 @@ export default function Layout({ children }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className="logo" />
+          Powered by <img src="/vercel.svg" alt="Vercel" className="logo" />
         </a>
       </footer>
 
