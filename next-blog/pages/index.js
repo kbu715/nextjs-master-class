@@ -2,6 +2,8 @@ import Head from 'next/head'
 import Layout, { siteTitle } from '../components/Layout'
 import { getSortedPostsData } from '../lib/posts'
 import utilStyles from '../styles/utils.module.css'
+import Link from 'next/link'
+import Date from '../components/Date'
 
 //TODO: 1. API Routes 로 data fetching
 //TODO: 2. getStaticProps에서 API Routes 사용해보기 (getStaticProps에서는 절대 경로 사용하기, fs는 server side 에서만 사용 가능)
@@ -34,11 +36,13 @@ export default function Home({ allPostsData }) {
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-              {title}
+              <Link href={`/posts/${id}`}>
+                <a>{title}</a>
+              </Link>
               <br />
-              {id}
-              <br />
-              {date}
+              <small className={utilStyles.lightText}>
+                <Date dateString={date} />
+              </small>
             </li>
           ))}
         </ul>
